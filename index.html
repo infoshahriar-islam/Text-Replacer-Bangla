@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<title>প্রতিস্থাপক</title>	
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<style>
+
+		body {
+
+			font-family: Arial, sans-serif;
+
+			font-size: 16px;
+
+			line-height: 1.5;
+
+			margin: 0;
+
+			padding: 0;
+
+		}
+
+		h1, h2 {
+
+			margin-top: 1rem;
+
+			margin-bottom: 0.5rem;
+
+		}
+
+		form {
+
+			max-width: 600px;
+
+			margin: 0 auto;
+
+			padding: 1rem;
+
+			border: 1px solid #ccc;
+
+			border-radius: 0.5rem;
+
+		}
+
+		textarea {
+
+			display: block;
+
+			margin-bottom: 10px;
+
+			width: 100%;
+
+			height: 100px;
+
+			resize: vertical;
+
+			border: 1px solid #ccc;
+
+			border-radius: 0.5rem;
+
+			padding: 0.5rem;
+
+			font-size: 1rem;
+
+			line-height: 1.5;
+
+		}
+
+		input[type="text"] {
+
+			display: block;
+
+			margin-bottom: 10px;
+
+			width: 100%;
+
+			border: 1px solid #ccc;
+
+			border-radius: 0.5rem;
+
+			padding: 0.5rem;
+
+			font-size: 1rem;
+
+			line-height: 1.5;
+
+		}
+
+		button[type="submit"] {
+
+			display: block;
+
+			margin: 0 auto;
+
+			padding: 0.5rem;
+
+			font-size: 1rem;
+
+			border-radius: 0.5rem;
+
+			background-color: #007bff;
+
+			color: #fff;
+
+			border: none;
+
+			cursor: pointer;
+
+			transition: background-color 0.3s ease;
+
+		}
+
+		button[type="submit"]:hover {
+
+			background-color: #0062cc;
+
+		}
+
+	</style>
+
+	<script>
+
+		window.addEventListener('DOMContentLoaded', function() {
+
+			document.getElementById('form').addEventListener('submit', function(event) {
+
+				event.preventDefault();
+
+				const longtext = document.getElementById('longtext').value;
+
+				const replace = document.getElementById('replace').value;
+
+				const replacement = document.getElementById('replacement').value;
+
+				const replaced = longtext.replaceAll(replace, replacement);
+
+				document.getElementById('replacedtext').value = replaced;
+
+				document.getElementById('results').classList.remove('hidden');
+
+			});
+
+		});
+
+	</script>
+
+</head>
+
+<body>
+
+	<h1>Text Replacement</h1>
+
+	<form id="form">
+
+		<label for="longtext">Long Text:</label>
+
+		<textarea id="longtext"></textarea>
+
+		<label for="replace">Text to Replace:</label>
+
+		<input type="text" id="replace">
+
+		<label for="replacement">Replacement Text:</label>
+
+		<input type="text" id="replacement">
+
+		<button type="submit">Submit</button>
+
+	</form>
+
+	<div id="results" class="hidden">
+
+		<h2>Results:</h2>
+
+		<label for="replacedtext">Replaced Text:</label>
+
+		<textarea id="replacedtext" readonly="readonly"></textarea>
+
+	</div>
+
+	<style>
+
+		.hidden {
+
+			display: none;
+
+		}
+
+	</style>
+
+</body>
+
+</html>
